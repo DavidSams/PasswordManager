@@ -16,6 +16,12 @@ const personal = [
         password: ['pass1234','pw'],
         tab: 'website'
     },
+    {   title: 'Another password',
+        'user id': ['admin'],
+        password: ['unknown','pw'],
+        pin: ['5678','pw'],
+        tab: 'app'
+    },
 
 ];
 
