@@ -1,0 +1,54 @@
+<!DOCTYPE HTML><html><head><meta charset="utf-8">
+<title>Password Manager v3.0</title>
+<script src="resources/jquery-3.3.1.slim.min.js"></script>
+<script src="resources/data.js"></script>
+<script src="resources/app.js"></script>
+<link rel="stylesheet" href="resources/app.css">
+</head><body>
+    
+	<div id="container">
+		
+		<div class="login-list-container">
+            <div class="login-tabs">
+
+                <div class="login-tabs-primary">
+                    <h4 class="login-tabs-title">Accounts</h4>
+                    <button type="button" data-tab="personal" class="active">Personal</button>
+                    <button type="button" data-tab="work">Work</button>
+                </div>
+
+                <!-- the data-tab attribute of the category buttons below are referenced by data.js
+                     to display shortlists of passwords within that category group.
+                     to "wire up" the buttons correctly, just ensure that this data-tab value
+                     matches the 'tab' property of whichever passwords you wish to be grouped under that category. -->
+                <div class="login-tabs-secondary">
+                    <h4 class="login-tabs-title">Categories</h4>
+                    <!-- feel free to edit/delete any of these custom category buttons -->
+                    <button type="button" data-tab="website">Websites</button>
+                    <button type="button" data-tab="app">Apps</button>
+                    <button type="button" data-tab="financial">Financial</button>
+                    <button type="button" data-tab="streaming">Streaming</button>
+                    <button type="button" data-tab="social">Social</button>
+                    <!-- any entries in data.js without a 'tab' property will automatically populate under the "Miscellaneous" tab -->
+                    <button type="button" data-tab="other">Miscellaneous</button>
+                </div>
+
+            </div>
+            <!-- results from search queries and category selections are listed here -->
+			<div class="login-list"></div>
+		</div>
+		
+		<div class="password-block">
+            <div class="search-field">
+                <input class="searchbar" type="text" placeholder="search..." autofocus>
+            </div>
+            <!-- password display card -->
+			<div class="password-field" id="showhidetoggle"></div>
+		</div>
+		
+	</div>
+	
+	<!-- invisible textarea used by copy-to-clipboard method -->
+	<textarea id="hidden-field"></textarea>
+
+</body></html>

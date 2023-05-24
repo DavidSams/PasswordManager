@@ -1,0 +1,207 @@
+/* Password Manager App CSS (v3.0) */
+
+html {
+    font-size: 16px;
+}
+
+body {
+    background-color: rgb(240 240 240);
+	font-family: Verdana, sans-serif;
+    cursor: default;
+    margin: 0;
+    color: black;
+}
+
+#container {
+	width: 100vw;
+    height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Results List */
+
+.login-list-container {
+    display: flex;
+    flex-flow: row nowrap;
+	position: absolute;
+	top: 0;
+    left: 0;
+    width: 30%;
+    height: 100%;
+    background-color: white;
+    box-shadow: -5px 0px 20px rgb(0 0 0 / 50%);
+}
+
+.login-tabs {
+    display: flex;
+    flex-flow: column nowrap;
+    flex-basis: 150px;
+    min-width: 150px;
+    background-color: rgb(250 250 250);
+    border-right: 1px solid rgb(0 0 0 / 10%);
+    overflow: auto;
+}
+.login-tabs-title {
+    padding: 0 20px;
+}
+.login-tabs-primary {
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(0 0 0 / 10%);
+}
+/* collapse category options if page becomes too narrow */
+@media screen and (max-width: 800px) {
+    .login-tabs {
+        display: none;
+    }
+}
+
+.login-tabs button {
+    display: block;
+    width: 100%;
+    float: left;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: black;
+    background-color: transparent;
+    text-align: left;
+    border: none;
+    outline: none;
+    border-radius: 0;
+}
+.login-tabs button:not(.active):hover {
+    background-color: rgb(0 0 0 / 10%);
+    cursor: pointer;
+}
+.login-tabs button.active {
+    color: white;
+    background-color: rgb(52 152 219);
+}
+
+.login-list {
+    flex-grow: 1;
+    overflow: auto;
+}
+.login-item {
+	cursor: pointer;
+	padding: 15px;
+	border-bottom: 1px solid rgb(0 0 0 / 10%);
+}
+.login-item:hover {
+	background-color: rgb(52 152 219 / 20%);
+}
+
+/* Display Area */
+
+.password-block {
+	position: fixed;
+	top: 0;
+    right: 0;
+	width: 70%;
+    height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.search-field {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.searchbar {
+    width: 65%;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    font-size: 1.4rem;
+    padding: .4rem 1.2rem;
+    color: rgb(180 180 180);
+    transition: all .2s;
+    cursor: pointer;
+}
+.searchbar::placeholder {
+    color: rgb(200 200 200);
+}
+.searchbar:focus {
+    outline: none;
+    color: rgb(100 100 100);
+    box-shadow: 0 10px 20px -10px rgb(0 0 0 / 25%);
+}
+
+.no-results {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 450px;
+    color: rgb(200 200 200);
+    font-size: 1.4rem;
+}
+
+/* Password Card */
+
+.password-field {
+    display: none;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+	padding: 40px;
+    background-color: rgb(250 250 250);
+	box-shadow: 0px 10px 20px -10px rgb(0 0 0 / 50%);
+}
+
+.title {
+	padding-bottom: 20px;
+	font-weight: bold;
+	font-size: 22px;
+	border-bottom: 1px solid rgb(0 0 0 / 10%);
+	margin-bottom: 30px;
+}
+
+.txt {
+	padding: 10px 15px;
+    cursor: pointer;
+	border-radius: 10px;
+	margin: 10px 0px;
+	border: 1px solid transparent;
+}
+.txt, .txt:hover, .txt:focus, .txt:active {
+    /* override default anchor <a> tag attributes */
+    display: block;
+    color: black;
+    text-decoration: none;
+}
+.txt:hover {
+	border: 1px solid rgb(0 0 0 / 10%);
+	background-color: white;
+}
+.txt:active {
+	background-color: rgb(240 240 240);
+}
+a.txt { /* prevent long urls from going off-screen */
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* conceal password field */
+.pw:not(.show) {
+    -webkit-text-security: disc;
+}
+
+/* Hidden Field (Copy to Clipboard)*/
+
+#hidden-field {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: -100;
+    opacity: 0;
+}
+
